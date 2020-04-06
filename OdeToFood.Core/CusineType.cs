@@ -1,14 +1,11 @@
 ﻿namespace OdeToFood.Core
 {
-    public partial class Restaurant
+    public enum CusineType
     {
-        public enum CusineType
-        {
-            None,
-            Mexican,
-            Italian,
-            India,
-            Poland,
-        }
+        None,
+        Mexican,
+        Italian,
+        India,
+        Poland,
     }
 }
