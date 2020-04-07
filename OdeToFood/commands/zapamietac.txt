@@ -1,0 +1,3 @@
+﻿dotnet ef dbcontext info -s ..\OdeToFood\OdeToFood.csproj
+dotnet ef migrations add initialmigrations -s ..\OdeToFood\OdeToFood.csproj
+dotnet ef database update -s ..\OdeToFood\OdeToFood.csproj
