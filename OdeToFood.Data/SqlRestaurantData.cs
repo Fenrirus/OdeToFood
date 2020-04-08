@@ -26,6 +26,11 @@
             return _db.SaveChanges();
         }
 
+        public int CountRestaurant()
+        {
+            return _db.Restaurants.Count();
+        }
+
         public Restaurant Delete(int id)
         {
             var restaurant = GetRestaurantById(id);

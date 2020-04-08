@@ -30,6 +30,11 @@ namespace OdeToFood.Data
             return 0;
         }
 
+        public int CountRestaurant()
+        {
+            return restaurants.Count();
+        }
+
         public Restaurant Delete(int id)
         {
             var restaurant = restaurants.FirstOrDefault(f => f.Id == id);
