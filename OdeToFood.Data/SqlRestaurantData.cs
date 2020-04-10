@@ -44,7 +44,7 @@
         public IEnumerable<Restaurant> GetRestaurantByBame(string name)
         {
             return from r in _db.Restaurants
-                   where string.IsNullOrEmpty(name) || r.Name.StartsWith(name, StringComparison.CurrentCulture)
+                   where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
                    orderby r.Name
                    select r;
         }
