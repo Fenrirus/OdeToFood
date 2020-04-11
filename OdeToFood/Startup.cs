@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -48,6 +49,8 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+            app.Use(SayHellowMiddlewere);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseNodeModules();
@@ -58,11 +61,21 @@ namespace OdeToFood
                 e.MapRazorPages();
                 e.MapControllers();
             });
+        }
 
-            app.UseEndpoints(endpoints =>
+        private RequestDelegate SayHellowMiddlewere(RequestDelegate next)
+        {
+            return async ctx =>
             {
-                endpoints.MapRazorPages();
-            });
+                if (ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("Hello, world!");
+                }
+                else
+                {
+                    await next(ctx);
+                }
+            };
         }
     }
 }
