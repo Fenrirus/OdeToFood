@@ -1,0 +1,2 @@
+﻿npm init
+npm install --save datatables.net-bs4
